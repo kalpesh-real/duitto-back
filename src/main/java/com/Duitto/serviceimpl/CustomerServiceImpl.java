@@ -159,19 +159,35 @@ public class CustomerServiceImpl implements CustomerService {
 		HashMap<String, Object> map = new HashMap();
 		boolean status = false;
 		try {
-			final Optional<JWTTOkenModel> jwtToken = jwtTokenRepository.findByJWTToken(token);
-			if(token.equals(jwtToken))
-			{
+			Optional<JWTTOkenModel> jwtToken = jwtTokenRepository.findByJwtToken(token);
+			if(jwtToken.isPresent()) {
+				Optional<CustomerRegistrationModel> customer = custRepos.findOneByEmail(jwtToken.get().getCusEmail());
+				map.put("data", customer.get());
 				map.put("status", true);
-			}
-			else {
+				map.put("token",token);
+				//deleteJWTToken(jwtToken.get().getId());
+			}else {
+				map.put("message", "Link Expired.");
 				map.put("status", false);
 			}
 		}catch (Exception e) {
 			map.put("status", false);
 			map.put("message", e.getMessage());
+			e.printStackTrace();
 		}
 		return map;
+	}
+
+	@Override
+	public boolean deleteJWTToken(Long Id) {
+		boolean status = false;
+		try {
+			jwtTokenRepository.deleteById(Id);
+			status = true;
+		} catch (Exception e) {
+			status = false;
+		}
+		return status;
 	}
 
 }

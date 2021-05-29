@@ -17,26 +17,39 @@ public class JWTTOkenModel {
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
 
-	String JWTToken;
+	private String jwtToken;
 
 	private long createdDate;
 
 	private String cusEmail;
 
-	public JWTTOkenModel(String JWTToken, long createdDate, String cusEmail) {
+	public JWTTOkenModel(String jwtToken, long createdDate, String cusEmail) {
 
-		this.JWTToken = JWTToken;
+		this.jwtToken = jwtToken;
 		this.createdDate = createdDate;
 		this.cusEmail = cusEmail;
 	}
 
-	public String getJWTToken() {
-		return JWTToken;
+
+
+	public JWTTOkenModel() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setJWTToken(String jWTToken) {
-		JWTToken = jWTToken;
+
+
+	public String getJwtToken() {
+		return jwtToken;
 	}
+
+
+
+	public void setJwtToken(String jwtToken) {
+		this.jwtToken = jwtToken;
+	}
+
+
 
 	public Long getId() {
 		return id;

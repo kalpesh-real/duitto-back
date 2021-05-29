@@ -22,7 +22,8 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	        if (customer == null) {
 	            throw new UsernameNotFoundException(username);
 	        }
-	        UserDetails user = User.withUsername(customer.getEmail()).authorities(customer.getUserRole()).roles(customer.getUserRole()).build();
+	        String password = "kalpesh";
+	        UserDetails user = User.withUsername(customer.getEmail()).password(password).authorities(customer.getUserRole()).roles(customer.getUserRole()).build();
 	        return user;
 	    }
 

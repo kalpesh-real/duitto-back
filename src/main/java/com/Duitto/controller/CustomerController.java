@@ -9,6 +9,7 @@ import com.Duitto.model.CustomerRegistrationModel;
 import com.Duitto.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -46,6 +47,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/loginVerification/{token}")
+	//@PreAuthorize("hasRole('USER')")
 	public HashMap<String, Object> loginVerification(@PathVariable String token) {
 
 		return customerservice.loginVerification(token);

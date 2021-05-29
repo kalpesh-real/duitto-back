@@ -25,4 +25,6 @@ public interface CustomerService {
 	HashMap<String, Object> loginVerification(String token);
 
 	void saveJWTToken(JWTTOkenModel jwtToken);
+	
+	boolean deleteJWTToken(Long pkId);
 }
