@@ -229,13 +229,13 @@ public class MailUtils {
                 + "&#44;</p>"
                 + "<p style='font-size: 1rem;color: #a6a6b9;margin-bottom:40px;'>To Login to your Duitto account, Please click on the button below&#46; </p>"
 
-                + "<div style='position: relative;top: 10px;'><a href=\"http://localhost:4200/confirmLogin/"
+                + "<div style='position: relative;top: 10px;'><a href=\"http://duitto.patilkalpesh.com/confirmLogin/"
                 + token + "\" "
                 + "style='width: max-content;color: #ffffff;background: #0097ef;border: 2px solid #0097ef;padding: 10px;border-radius: 4px;font-size: 1.2rem;text-decoration: unset;font-family: sans-serif;' ><span>Click to Login</span></a></div>"
 
-                + "<div style='position: relative;top: 10px;margin-top: 50px;'><a href=\"http://localhost:4200/confirmLogin/"
+                + "<div style='position: relative;top: 10px;margin-top: 50px;'><a href=\"http://duitto.patilkalpesh.com/confirmLogin/"
                 + token + "\" "
-                + " ><span style='color:#000000'>Unable to click on the above button? Click here </span><span>http://localhost:4200/confirmLogin/"+token+"</span></a></div>"
+                + " ><span style='color:#000000'>Unable to click on the above button? Click here </span><span>http://duitto.patilkalpesh.com/confirmLogin/"+token+"</span></a></div>"
 
                 + "</div>"
                 + "<div style='height: 20px;background-color: #0097ef;margin: 40px 0;align-self: center;'>&nbsp;</div>"

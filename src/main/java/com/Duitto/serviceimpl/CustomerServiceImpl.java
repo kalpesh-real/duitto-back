@@ -165,7 +165,7 @@ public class CustomerServiceImpl implements CustomerService {
 				map.put("data", customer.get());
 				map.put("status", true);
 				map.put("token",token);
-				//deleteJWTToken(jwtToken.get().getId());
+			    deleteJWTToken(jwtToken.get().getId());
 			}else {
 				map.put("message", "Link Expired.");
 				map.put("status", false);
