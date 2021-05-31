@@ -18,6 +18,8 @@ public interface CustomerRepository extends CrudRepository<CustomerRegistrationM
 	
 	CustomerRegistrationModel findByEmail(String email);
 
+	Optional<CustomerRegistrationModel> findByUserName(String uname);
+
 
 	
 }

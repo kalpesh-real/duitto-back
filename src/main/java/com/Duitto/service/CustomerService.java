@@ -27,4 +27,6 @@ public interface CustomerService {
 	void saveJWTToken(JWTTOkenModel jwtToken);
 	
 	boolean deleteJWTToken(Long pkId);
+
+	HashMap<String, Object> userNameVerification(String json);
 }

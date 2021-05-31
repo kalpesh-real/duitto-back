@@ -8,6 +8,8 @@ import com.Duitto.model.ConfirmationTokenModel;
 import com.Duitto.model.CustomerRegistrationModel;
 import com.Duitto.service.CustomerService;
 
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -54,11 +56,11 @@ public class CustomerController {
 
 	}
 
-	@GetMapping("/test")
-	public String Test() {
-		HashMap<String, Object> resp = new HashMap<>();
+	@PostMapping("/userNameVerification")
+	public  HashMap<String, Object> userNameVerification(@RequestBody String json) {
 
-		return "test";
+		return customerservice.userNameVerification(json);
+
 	}
 
 }

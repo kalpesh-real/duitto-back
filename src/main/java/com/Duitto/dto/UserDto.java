@@ -24,11 +24,23 @@ public class UserDto {
     private boolean isEnabled;
 
     private String userRole;
+    
+    private String userName;
 
-    public UserDto() {
+    
+    
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public UserDto() {
     }
 
-    public UserDto(Long id, String ip, String fullName,  String email, String mobileNumber,  long isCreatedOn, boolean isEnabled, String userRole) {
+    public UserDto(Long id, String ip, String fullName,  String email, String mobileNumber,  long isCreatedOn, boolean isEnabled, String userRole, String userName) {
         this.id = id;
         this.ip = ip;
        
@@ -41,6 +53,7 @@ public class UserDto {
         this.isCreatedOn = isCreatedOn;
         this.isEnabled = isEnabled;
         this.userRole = userRole;
+        this.userName = userName;
     }
 
 

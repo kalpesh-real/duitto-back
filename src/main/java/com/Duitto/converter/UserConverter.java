@@ -10,12 +10,26 @@ public class UserConverter {
         CustomerRegistrationModel user = new CustomerRegistrationModel();
         user.setIsCreatedOn(MethodsUtility.getCurrentTimestamp());
         user.setEnabled(false);
- 
         user.setEmail(userDto.getEmail());
         user.setFullName(userDto.getFullName());
-      
         user.setUserRole("USER");
         user.setIp(userDto.getIp());	
+        user.setUserName(userDto.getUserName());
+       
+        return user;
+    }
+    
+    public static CustomerRegistrationModel dtoToEntityWithIdForUpdate(UserDto userDto) {
+        CustomerRegistrationModel user = new CustomerRegistrationModel();
+        user.setId(userDto.getId());
+        user.setIsCreatedOn(userDto.getIsCreatedOn());
+        user.setEnabled(userDto.isEnabled());
+        user.setEmail(userDto.getEmail());
+        user.setFullName(userDto.getFullName());
+        user.setUserRole("USER");
+        user.setIp(userDto.getIp());	
+        user.setUserName(userDto.getUserName());
+       
         return user;
     }
 
@@ -29,6 +43,7 @@ public class UserConverter {
 
         userDto.setEmail(user.getEmail());
         userDto.setIp(user.getIp());
+        userDto.setUserName(user.getUserName());
         return userDto;
         }
        
@@ -43,6 +58,7 @@ public class UserConverter {
         userDto.setIsCreatedOn(user.getIsCreatedOn());
         userDto.setEmail(user.getEmail());
         userDto.setIp(user.getIp());
+        userDto.setUserName(user.getUserName());
         return userDto;
     }
 }
