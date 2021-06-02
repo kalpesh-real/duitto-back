@@ -23,7 +23,7 @@ public class Test {
 		@Column(name = "customer_id" ,columnDefinition = "long default 0")
 		private long customerId;
 
-		@Column(name = "username")
+		@Column(name = "username",columnDefinition = "text")
 		private String reservedUName;
 		
 		@Column(name = "available" ,columnDefinition = "integer default 0")
