@@ -248,5 +248,54 @@ public class MailUtils {
         return mail;
     }
 
+    public static Mail reservedUsernameRequestToAdmin(){
+
+        
+        Mail mail = new Mail();
+
+        mail.setMailFrom("Duitto.com");
+        mail.setMailTo("ksp27695.kp@gmail.com");
+        mail.setMailSubject("Request Of Reserved UserName");
+        StringBuilder body = new StringBuilder();
+
+        body.append("<html>");
+        body.append("<head>");
+        body.append("<style>");
+        body.append("@media screen and (max-width: 500px) {");
+        body.append(".header-text" + "{" + "font-size:1.3rem !important;" + "}");
+        body.append(".margin-text" + "{" + " margin: 0 2% !important;" + "}");
+        body.append("}");
+        body.append("</style>");
+        body.append("</head>");
+        body.append("<body>");
+        String template = "<div style='margin:0 10%;font-family: sans-serif;' class='margin-text'>"
+
+                + "<div style='height: 20px;background-color: #0097ef;margin: 40px 0;align-self: center;'>&nbsp;</div>"
+                + "<div style='padding-left:10%;'>"
+                + "<div style='border-bottom: 2px solid #a6a6b9;'><span style='font-size: 1rem;color: gray;padding-bottom: 21px;font-weight: 700;' class='header-text'>Link for Login\r\n" +
+                "</span></div>"
+                + "<p style='font-size: 1rem;color: #a6a6b9;margin-bottom:20px;margin-top: 40px;'>Hi "
+                + "&#44;</p>"
+                + "<p style='font-size: 1rem;color: #a6a6b9;margin-bottom:40px;'>To Login to your Duitto account, Please click on the button below&#46; </p>"
+
+                + "<div style='position: relative;top: 10px;'><a href=\"http://duitto.macrosoftware.io/confirmLogin/"
+                +  "\" "
+                + "style='width: max-content;color: #ffffff;background: #0097ef;border: 2px solid #0097ef;padding: 10px;border-radius: 4px;font-size: 1.2rem;text-decoration: unset;font-family: sans-serif;' ><span>Click to Login</span></a></div>"
+
+                + "<div style='position: relative;top: 10px;margin-top: 50px;'><a href=\"http://duitto.macrosoftware.io/confirmLogin/"
+                + "\" "
+                + " ><span style='color:#000000'>Unable to click on the above button? Click here </span><span>http://duitto.macrosoftware.io/confirmLogin/</span></a></div>"
+
+                + "</div>"
+                + "<div style='height: 20px;background-color: #0097ef;margin: 40px 0;align-self: center;'>&nbsp;</div>"
+                + "</div>";
+        body.append(template);
+        body.append("<body>");
+        body.append("</html>");
+        mail.setMailContent(body.toString());
+
+        return mail;
+    }
+
 }
 

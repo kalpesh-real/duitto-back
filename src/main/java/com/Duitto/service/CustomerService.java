@@ -29,4 +29,6 @@ public interface CustomerService {
 	boolean deleteJWTToken(Long pkId);
 
 	HashMap<String, Object> userNameVerification(String json);
+
+	HashMap<String, Object> requestToAdminForReservedUserName(String json);
 }

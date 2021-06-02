@@ -15,9 +15,11 @@ import com.Duitto.dto.UserDto;
 import com.Duitto.model.ConfirmationTokenModel;
 import com.Duitto.model.CustomerRegistrationModel;
 import com.Duitto.model.JWTTOkenModel;
+import com.Duitto.model.ReservedUsernameListModel;
 import com.Duitto.repository.ConfirmationTokenRepository;
 import com.Duitto.repository.CustomerRepository;
 import com.Duitto.repository.JWTTokenRepository;
+import com.Duitto.repository.ReservedUserNameListRepository;
 import com.Duitto.service.CustomerService;
 import com.Duitto.service.MailService;
 import com.Duitto.utility.MailUtils;
@@ -37,6 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	MailService mailService;
+	
+	@Autowired
+	ReservedUserNameListRepository reservedUnameRepos;
 
 	@Override
 	public HashMap<String, Object> registerCustomer(UserDto customerDto) {
@@ -212,19 +217,54 @@ public class CustomerServiceImpl implements CustomerService {
 		try {
 			String uname = jsonObj.getString("uname");
 			Optional<CustomerRegistrationModel> custmodel = custRepos.findByUserName(uname);
-			if(custmodel.isPresent()) {
+			Optional<ReservedUsernameListModel> reserveduname = reservedUnameRepos.findbyUserName(uname);
+			if(reserveduname.isPresent()) {
+				map.put("reserveduname",reserveduname.get().getReservedUserName());
+				map.put("uname","NA");
+				map.put("status", true);
+			}else if(custmodel.isPresent()) {
+				map.put("reserveduname","NA");
 				map.put("uname",custmodel.get().getUserName());
 				map.put("status", true);
 			}else {
+				map.put("reserveduname","NA");
 				map.put("uname","NA");
 				map.put("message", "not available");
 				map.put("status", false);
 			}
 			
 		} catch (Exception e) {
-			
 			map.put("message", e.getMessage());
+			e.printStackTrace();
 			map.put("status", false);
+		}
+		return map;
+	}
+
+	@Override
+	public HashMap<String, Object> requestToAdminForReservedUserName(String json) {
+		HashMap<String, Object> map = new HashMap();
+		JSONObject jsonObj = new JSONObject(json);
+		try {
+			
+			Optional<ReservedUsernameListModel> model = reservedUnameRepos.findbyUserName(jsonObj.getString("reservedUserName"));
+			//Optional<CustomerRegistrationModel> customer = custRepos.findById(jsonObj.getLong("custId"));
+			if(model.isPresent()) {
+				//model.get().setCustomer(customer.get());
+				model.get().setCustomerId(jsonObj.getLong("custId"));
+				model.get().setIsRequest(1);
+				model.get().setReason(jsonObj.getString("reason"));
+				reservedUnameRepos.save(model.get());
+				Mail mail = MailUtils.reservedUsernameRequestToAdmin();
+				mailService.sendEmail(mail);
+				map.put("message","request send to admin");
+				map.put("status", true);
+			}
+			
+		} catch (Exception e) {
+			map.put("message",e.getMessage());
+			map.put("status", false);
+			e.printStackTrace();
 		}
 		return map;
 	}

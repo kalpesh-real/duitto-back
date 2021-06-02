@@ -62,5 +62,13 @@ public class CustomerController {
 		return customerservice.userNameVerification(json);
 
 	}
+	
+	@PostMapping("/requestToAdminForReservedUserName")
+	public  HashMap<String, Object> requestToAdminForReservedUserName(@RequestBody String json) {
+
+		return customerservice.requestToAdminForReservedUserName(json);
+
+	}
+	
 
 }
