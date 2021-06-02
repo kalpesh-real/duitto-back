@@ -15,6 +15,7 @@ import com.Duitto.dto.UserDto;
 import com.Duitto.model.ConfirmationTokenModel;
 import com.Duitto.model.CustomerRegistrationModel;
 import com.Duitto.model.JWTTOkenModel;
+import com.Duitto.model.ReserveUserNameModel;
 import com.Duitto.model.ReservedUsernameListModel;
 import com.Duitto.repository.ConfirmationTokenRepository;
 import com.Duitto.repository.CustomerRepository;
@@ -217,7 +218,7 @@ public class CustomerServiceImpl implements CustomerService {
 		try {
 			String uname = jsonObj.getString("uname");
 			Optional<CustomerRegistrationModel> custmodel = custRepos.findByUserName(uname);
-			Optional<ReservedUsernameListModel> reserveduname = reservedUnameRepos.findbyUserName(uname);
+			Optional<ReserveUserNameModel> reserveduname = reservedUnameRepos.findbyUserName(uname);
 			if(reserveduname.isPresent()) {
 				map.put("reserveduname",reserveduname.get().getReservedUserName());
 				map.put("uname","NA");
@@ -247,7 +248,7 @@ public class CustomerServiceImpl implements CustomerService {
 		JSONObject jsonObj = new JSONObject(json);
 		try {
 			
-			Optional<ReservedUsernameListModel> model = reservedUnameRepos.findbyUserName(jsonObj.getString("reservedUserName"));
+			Optional<ReserveUserNameModel> model = reservedUnameRepos.findbyUserName(jsonObj.getString("reservedUserName"));
 			//Optional<CustomerRegistrationModel> customer = custRepos.findById(jsonObj.getLong("custId"));
 			if(model.isPresent()) {
 				//model.get().setCustomer(customer.get());
