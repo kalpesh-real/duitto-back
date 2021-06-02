@@ -23,13 +23,13 @@ public class Test {
 		@Column(name = "customer_id" ,columnDefinition = "long default 0")
 		private long customerId;
 
-		@Column(name = "user_name")
+		@Column(name = "username")
 		private String reservedUName;
 		
-		@Column(name = "is_available" ,columnDefinition = "integer default 0")
+		@Column(name = "available" ,columnDefinition = "integer default 0")
 		private String isAvailable;
 		
-		@Column(name = "is_request" ,columnDefinition = "integer default 0")
+		@Column(name = "request" ,columnDefinition = "integer default 0")
 		private int isRequest;
 		
 		@Column(name = "reason" ,columnDefinition = "text")
