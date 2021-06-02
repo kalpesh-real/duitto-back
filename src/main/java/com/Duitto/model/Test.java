@@ -20,6 +20,19 @@ public class Test {
 		@Column(name = "id", unique = true, nullable = false)
 		private Long id;
 
-		@Column(name = "ip")
-		private String ip;
+		@Column(name = "customer_id" ,columnDefinition = "long default 0")
+		private long customerId;
+
+		@Column(name = "user_name")
+		private String reservedUserName;
+		
+		@Column(name = "is_available" ,columnDefinition = "integer default 0")
+		private String isAvailable;
+		
+		@Column(name = "is_request" ,columnDefinition = "integer default 0")
+		private int isRequest;
+		
+		@Column(name = "reason" ,columnDefinition = "text")
+		private String reason;
+
 }
