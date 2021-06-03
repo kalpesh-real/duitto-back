@@ -10,7 +10,7 @@ import com.Duitto.model.ReservedUsernameListModel;
 
 public interface ReservedUserNameListRepository extends CrudRepository<ReserveUserNameModel, Long> {
 
-	@Query("from ReserveUserNameModel where reservedUserName = ?1 and isAvailable=0 and isRequest=0")
+	@Query("from ReserveUserNameModel where reservedUserName = ?1")
 	Optional<ReserveUserNameModel> findbyUserName(String uname);
 
 }

@@ -221,6 +221,8 @@ public class CustomerServiceImpl implements CustomerService {
 			Optional<ReserveUserNameModel> reserveduname = reservedUnameRepos.findbyUserName(uname);
 			if(reserveduname.isPresent()) {
 				map.put("reserveduname",reserveduname.get().getReservedUserName());
+				map.put("isAvailable",reserveduname.get().getIsAvailable());
+				map.put("isRequest",reserveduname.get().getIsRequest());
 				map.put("uname","NA");
 				map.put("status", true);
 			}else if(custmodel.isPresent()) {
