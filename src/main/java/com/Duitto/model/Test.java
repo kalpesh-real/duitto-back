@@ -23,13 +23,17 @@ public class Test {
 		@Column(name = "customer_id" ,columnDefinition = "long default 0")
 		private long customerId;
 
+<<<<<<< HEAD
 		@Column(name = "user_name")
 		private String reservedName;
 		
 		@Column(name = "is_available" ,columnDefinition = "integer default 0")
 		private String isAvailable;
+=======
+	
+>>>>>>> 845f8e7baff6f180eee1cea1fe543439793addf1
 		
-		@Column(name = "is_request" ,columnDefinition = "integer default 0")
+		@Column(name = "request" ,columnDefinition = "integer default 0")
 		private int isRequest;
 		
 		@Column(name = "reason" ,columnDefinition = "text")
