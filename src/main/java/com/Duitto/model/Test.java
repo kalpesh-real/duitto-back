@@ -24,7 +24,7 @@ public class Test {
 		private long customerId;
 
 		@Column(name = "user_name")
-		private String reservedUserName;
+		private String reservedName;
 		
 		@Column(name = "is_available" ,columnDefinition = "integer default 0")
 		private String isAvailable;
