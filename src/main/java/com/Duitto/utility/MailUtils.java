@@ -13,7 +13,7 @@ public class MailUtils {
         String tokenEmail = token.getConfirmationToken();
         Mail mail = new Mail();
 
-        mail.setMailFrom("Duitto.com");
+        mail.setMailFrom("duitto@patilkalpesh.com");
         mail.setMailTo(email);
         mail.setMailSubject("Welcome to Duitto!");
         StringBuilder body = new StringBuilder();
@@ -204,7 +204,7 @@ public class MailUtils {
      
         Mail mail = new Mail();
 
-        mail.setMailFrom("Duitto.com");
+        mail.setMailFrom("duitto@patilkalpesh.com");
         mail.setMailTo(dto.getEmail());
         mail.setMailSubject("Welcome to Duitto!");
         StringBuilder body = new StringBuilder();
@@ -253,7 +253,7 @@ public class MailUtils {
         
         Mail mail = new Mail();
 
-        mail.setMailFrom("Duitto.com");
+        mail.setMailFrom("duitto@patilkalpesh.com");
         mail.setMailTo("ksp27695.kp@gmail.com");
         mail.setMailSubject("Request Of Reserved UserName");
         StringBuilder body = new StringBuilder();
